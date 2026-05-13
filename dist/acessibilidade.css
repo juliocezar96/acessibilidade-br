@@ -1,0 +1,347 @@
+/* ============================================
+   ACESSIBILIDADE-BR - Estilos do Widget v1.0.1
+   Prefixo .acb- em todas as classes para evitar
+   conflitos com o CSS do site host.
+   ============================================ */
+
+/* ============================================
+   FONTE OpenDyslexic (carregada via jsDelivr CDN)
+   So baixa quando .acb-dyslexia esta ativa.
+   ============================================ */
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/otf/OpenDyslexic-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/otf/OpenDyslexic-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/otf/OpenDyslexic-Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/otf/OpenDyslexic-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ============================================
+   Reset isolado para o widget
+   ============================================ */
+.acb-widget,
+.acb-widget * {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ============================================
+   Botao Flutuante
+   ============================================ */
+.acb-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #1e6bb8;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999998;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  padding: 0;
+}
+.acb-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  background: #1557a0;
+}
+.acb-toggle:focus-visible {
+  outline: 3px solid #ffd700;
+  outline-offset: 3px;
+}
+.acb-toggle svg {
+  width: 32px;
+  height: 32px;
+  fill: #ffffff;
+}
+
+.acb-toggle.acb-pos-bottom-left { bottom: 20px; left: 20px; right: auto; }
+.acb-toggle.acb-pos-top-right   { top: 20px; right: 20px; bottom: auto; }
+.acb-toggle.acb-pos-top-left    { top: 20px; left: 20px; bottom: auto; right: auto; }
+
+/* ============================================
+   Painel Dropdown
+   ============================================ */
+.acb-panel {
+  position: fixed;
+  bottom: 88px;
+  right: 20px;
+  width: 320px;
+  max-height: calc(100vh - 120px);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 999999;
+  display: none;
+  flex-direction: column;
+  animation: acb-slide-in 0.22s ease-out;
+}
+.acb-panel.acb-open { display: flex; }
+.acb-panel.acb-pos-bottom-left { bottom: 88px; left: 20px; right: auto; }
+.acb-panel.acb-pos-top-right   { top: 88px; right: 20px; bottom: auto; }
+.acb-panel.acb-pos-top-left    { top: 88px; left: 20px; bottom: auto; right: auto; }
+
+@keyframes acb-slide-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.acb-header {
+  padding: 14px 16px;
+  background: #1e6bb8;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.acb-header h2 { margin: 0; font-size: 16px; font-weight: 600; }
+.acb-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+.acb-close:hover { background: rgba(255, 255, 255, 0.15); }
+
+.acb-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  overflow-y: auto;
+  flex: 1;
+}
+.acb-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  width: 100%;
+  background: #f5f7fa;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 6px;
+  text-align: left;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s, border-color 0.15s;
+}
+.acb-item:hover { background: #e8eef5; }
+.acb-item:focus-visible { outline: 2px solid #1e6bb8; outline-offset: 1px; }
+.acb-item.acb-active {
+  background: #d6e6f5;
+  border-color: #1e6bb8;
+  color: #0d4d8f;
+}
+.acb-item-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 6px;
+  font-size: 16px;
+}
+.acb-item.acb-active .acb-item-icon { background: #1e6bb8; color: #ffffff; }
+.acb-item-label { flex: 1; }
+
+.acb-footer {
+  padding: 10px 12px;
+  border-top: 1px solid #e5e7eb;
+  background: #fafbfc;
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.acb-btn-reset {
+  flex: 1;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #374151;
+  font-weight: 500;
+}
+.acb-btn-reset:hover { background: #f3f4f6; border-color: #9ca3af; }
+
+/* ============================================
+   MODIFICADORES NA PAGINA
+   ============================================ */
+
+/* Tamanho do texto */
+html.acb-fs-1  { font-size: 110% !important; }
+html.acb-fs-2  { font-size: 120% !important; }
+html.acb-fs-3  { font-size: 135% !important; }
+html.acb-fs-4  { font-size: 150% !important; }
+html.acb-fs--1 { font-size: 90%  !important; }
+html.acb-fs--2 { font-size: 80%  !important; }
+
+/* Espacamento de texto */
+html.acb-ls-1 body *, html.acb-ls-1 body  { letter-spacing: 0.05em !important; word-spacing: 0.1em !important; line-height: 1.6 !important; }
+html.acb-ls-2 body *, html.acb-ls-2 body  { letter-spacing: 0.1em  !important; word-spacing: 0.2em !important; line-height: 1.8 !important; }
+html.acb-ls-3 body *, html.acb-ls-3 body  { letter-spacing: 0.15em !important; word-spacing: 0.3em !important; line-height: 2.0 !important; }
+html.acb-ls--1 body *, html.acb-ls--1 body { letter-spacing: -0.02em !important; word-spacing: -0.02em !important; line-height: 1.2 !important; }
+
+/* ============================================
+   FILTROS DE COR - aplicados no wrapper interno
+   (NUNCA no <html> ou <body>, pois isso quebra
+   position: fixed do widget).
+   ============================================ */
+.acb-content {
+  isolation: isolate;
+}
+.acb-content.acb-invert {
+  filter: invert(1) hue-rotate(180deg);
+  background: #fff;
+  min-height: 100vh;
+}
+.acb-content.acb-invert img,
+.acb-content.acb-invert video,
+.acb-content.acb-invert picture,
+.acb-content.acb-invert iframe,
+.acb-content.acb-invert svg image {
+  filter: invert(1) hue-rotate(180deg);
+}
+.acb-content.acb-grayscale {
+  filter: grayscale(1);
+  min-height: 100vh;
+}
+.acb-content.acb-invert.acb-grayscale {
+  filter: invert(1) hue-rotate(180deg) grayscale(1);
+}
+
+/* Sublinhar links - alta especificidade para sobrescrever sites */
+html.acb-underline-links a,
+html.acb-underline-links a:link,
+html.acb-underline-links a:visited,
+html.acb-underline-links a:hover,
+html.acb-underline-links a:active {
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+}
+
+/* Fonte para Dislexia - aplicada em tudo do body
+   exceto dentro do widget (que mantem fonte legivel) */
+html.acb-dyslexia body,
+html.acb-dyslexia body * {
+  font-family: "OpenDyslexic", "Comic Sans MS", "Comic Sans", "Lexend", Verdana, sans-serif !important;
+}
+html.acb-dyslexia .acb-widget,
+html.acb-dyslexia .acb-widget * {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Cursor grande - SVG inline */
+html.acb-big-cursor,
+html.acb-big-cursor body,
+html.acb-big-cursor body * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M8 4 L8 40 L18 30 L24 44 L30 41 L24 27 L40 27 Z" fill="black" stroke="white" stroke-width="2"/></svg>') 4 4, auto !important;
+}
+html.acb-big-cursor a,
+html.acb-big-cursor button,
+html.acb-big-cursor [role="button"] {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M16 4 L16 28 L8 28 L24 44 L40 28 L32 28 L32 4 Z" fill="black" stroke="white" stroke-width="2"/></svg>') 24 4, pointer !important;
+}
+
+/* Guia de Leitura (linha que segue o mouse) */
+.acb-reading-guide {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 0;
+  background: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  z-index: 999997;
+  display: none;
+}
+.acb-reading-guide.acb-visible { display: block; }
+
+.acb-reading-guide-window {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 80px;
+  pointer-events: none;
+  z-index: 999996;
+  display: none;
+  box-shadow:
+    0 -2000px 0 1000px rgba(0, 0, 0, 0.5),
+    0  2000px 0 1000px rgba(0, 0, 0, 0.5);
+}
+.acb-reading-guide-window.acb-visible { display: block; }
+
+/* Indicador de TTS ativo */
+.acb-tts-hint {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(30, 107, 184, 0.95);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  z-index: 999995;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  display: none;
+  animation: acb-fade-in 0.3s ease-out;
+}
+.acb-tts-hint.acb-visible { display: block; }
+@keyframes acb-fade-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Destaque do elemento sendo lido pelo TTS */
+.acb-tts-reading {
+  outline: 3px solid #1e6bb8 !important;
+  outline-offset: 2px !important;
+  background-color: rgba(255, 235, 59, 0.3) !important;
+  transition: outline 0.2s, background-color 0.2s;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .acb-panel { width: calc(100vw - 40px); max-width: 320px; }
+}

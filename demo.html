@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo - acessibilidade-br</title>
+
+  <!-- CSS da biblioteca -->
+  <link rel="stylesheet" href="dist/acessibilidade.css" />
+
+  <style>
+    /* Estilos da pagina demo (independentes da biblioteca) */
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      margin: 0;
+      background: #f5f1ea;
+      color: #2a2a2a;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #1e6bb8, #0d4d8f);
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 { margin: 0 0 10px; font-size: 2.4em; }
+    header p { margin: 0; opacity: 0.92; font-size: 1.1em; }
+
+    main {
+      max-width: 760px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    article {
+      background: #fff;
+      padding: 30px 36px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
+    }
+    article h2 {
+      margin-top: 0;
+      color: #1e6bb8;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+    a { color: #1e6bb8; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .grid div {
+      background: #f0f4f8;
+      padding: 14px;
+      border-radius: 8px;
+      border-left: 4px solid #1e6bb8;
+    }
+    .grid strong { color: #0d4d8f; }
+    img.demo-img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px 80px;
+      color: #6b7280;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Biblioteca de Acessibilidade</h1>
+    <p>Demonstração das 12 ferramentas — clique no ícone azul no canto inferior direito</p>
+  </header>
+
+  <main>
+    <article>
+      <h2>Sobre esta página</h2>
+      <p>
+        Esta é uma página de exemplo para testar a biblioteca <strong>acessibilidade-br</strong>.
+        Use o widget flutuante no canto da tela para experimentar todas as funcionalidades de acessibilidade.
+      </p>
+      <p>
+        Visite o <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener">site oficial do W3C WAI</a>
+        para entender melhor as diretrizes de acessibilidade.
+      </p>
+    </article>
+
+    <article>
+      <h2>Conteúdo para testar Texto para Fala</h2>
+      <p>
+        Quando você ativar a opção <strong>Texto para Fala</strong>, qualquer parágrafo ou bloco de texto
+        que você clicar será lido em voz alta pelo navegador. Experimente clicar em diferentes elementos
+        desta página enquanto a função estiver ativa.
+      </p>
+      <p>
+        A síntese de voz utiliza a Web Speech API nativa do navegador. A qualidade da voz e os idiomas
+        disponíveis dependem do sistema operacional e do navegador que você está usando.
+      </p>
+    </article>
+
+    <article>
+      <h2>Conteúdo para testar tamanhos e espaçamentos</h2>
+      <p>
+        Use os botões <strong>Aumentar Texto</strong> e <strong>Diminuir Texto</strong> para ajustar o
+        tamanho da fonte em toda a página. Os botões de <strong>Espaçamento</strong> ampliam ou reduzem
+        a distância entre letras, palavras e linhas, melhorando muito a legibilidade para pessoas com
+        dislexia ou baixa visão.
+      </p>
+      <div class="grid">
+        <div><strong>Inverter Cores:</strong> útil para usuários com sensibilidade à luz.</div>
+        <div><strong>Tons de Cinza:</strong> remove cores que podem distrair.</div>
+        <div><strong>Sublinhar Links:</strong> destaca todos os links da página.</div>
+        <div><strong>Fonte para Dislexia:</strong> aplica fonte mais legível.</div>
+        <div><strong>Cursor Grande:</strong> facilita ver o ponteiro do mouse.</div>
+        <div><strong>Guia de Leitura:</strong> destaca a linha que você está lendo.</div>
+      </div>
+    </article>
+
+    <article>
+      <h2>Como usar nos sites do seu trabalho</h2>
+      <p>Inclua estes dois arquivos em qualquer site HTML:</p>
+      <pre style="background:#1e1e1e;color:#e5e7eb;padding:14px;border-radius:8px;overflow-x:auto;font-family:monospace;font-size:13px;">
+&lt;link rel="stylesheet" href="acessibilidade.css" /&gt;
+&lt;script src="acessibilidade.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  new Acessibilidade(); // pronto!
+&lt;/script&gt;</pre>
+    </article>
+  </main>
+
+  <footer>
+    acessibilidade-br v1.0.0 &middot; MIT License
+  </footer>
+
+  <!-- JS da biblioteca -->
+  <script src="dist/acessibilidade.js"></script>
+  <script>
+    // Inicia o widget com posicao inferior direita
+    new Acessibilidade({
+      posicaoInicial: "bottom-right",
+      salvarPreferencias: true,
+      idiomaTTS: "pt-BR"
+    });
+  </script>
+</body>
+</html>

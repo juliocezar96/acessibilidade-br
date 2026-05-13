@@ -1,0 +1,50 @@
+{
+  "name": "acessibilidade-br",
+  "version": "1.0.1",
+  "description": "Biblioteca de acessibilidade web em portugues - widget flutuante com 12 ferramentas de acessibilidade (aumentar texto, inverter cores, fonte para dislexia, texto para fala e mais)",
+  "main": "dist/acessibilidade.js",
+  "module": "src/index.js",
+  "style": "dist/acessibilidade.css",
+  "files": [
+    "src/",
+    "dist/",
+    "demo.html"
+  ],
+  "scripts": {
+    "build": "node build.js",
+    "demo": "npx http-server . -p 8080 -o /demo.html",
+    "test": "echo \"Abra demo.html no navegador para testar\""
+  },
+  "keywords": [
+    "acessibilidade",
+    "accessibility",
+    "a11y",
+    "wcag",
+    "portugues",
+    "widget",
+    "dyslexia",
+    "tts",
+    "text-to-speech"
+  ],
+  "author": {
+    "name": "Julio",
+    "email": "juliocr.jc38@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juliocezar96/acessibilidade-br.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juliocezar96/acessibilidade-br/issues"
+  },
+  "homepage": "https://github.com/juliocezar96/acessibilidade-br#readme",
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
