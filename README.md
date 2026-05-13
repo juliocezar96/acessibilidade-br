@@ -229,6 +229,19 @@ acessibilidade-br/
 └── README.md
 ```
 
+### `src/` vs `dist/` — qual o programa usa?
+
+**`src/index.js`** é o **código-fonte** — onde o desenvolvimento acontece. Tem comentários, formatação legível e nomes de variáveis descritivos. É o arquivo que você edita.
+
+**`dist/acessibilidade.js`** é o **código distribuído** — a cópia processada do `src/index.js` gerada pelo comando `npm run build`. É esse que o mundo usa:
+
+- Quem faz `npm install acessibilidade-br` recebe o `dist/`, porque o `package.json` aponta `"main": "dist/acessibilidade.js"`
+- Quem usa o link CDN (unpkg, jsDelivr) também está baixando o `dist/`
+
+O `src/index.js` nunca chega ao usuário final diretamente — ele existe apenas para você poder ler, entender e modificar o código com facilidade.
+
+> Pense assim: `src/` é a receita com anotações do cozinheiro. `dist/` é o prato pronto que vai para a mesa. O cozinheiro trabalha na receita, o cliente come o prato.
+
 ---
 
 ## Licença
