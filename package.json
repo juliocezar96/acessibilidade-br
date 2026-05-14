@@ -1,6 +1,6 @@
 {
   "name": "acessibilidade-br",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Biblioteca de acessibilidade web em portugues - widget flutuante com 12 ferramentas de acessibilidade (aumentar texto, inverter cores, fonte para dislexia, texto para fala e mais)",
   "main": "dist/acessibilidade.js",
   "module": "src/index.js",
