@@ -481,7 +481,7 @@
     if (this.opcoes.salvarPreferencias) salvarEstado(this.estado);
   };
 
-  Acessibilidade.versao = "1.0.1";
+  Acessibilidade.versao = "1.0.2";
   Acessibilidade.ferramentas = FERRAMENTAS.slice();
 
   return Acessibilidade;
