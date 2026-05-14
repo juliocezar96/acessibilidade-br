@@ -80,6 +80,7 @@
   width: 32px;
   height: 32px;
   fill: #ffffff;
+  color: #ffffff;
 }
 
 .acb-toggle.acb-pos-bottom-left { bottom: 20px; left: 20px; right: auto; }
