@@ -80,6 +80,7 @@
   width: 32px;
   height: 32px;
   fill: #ffffff;
+  color: #ffffff;
 }
 
 .acb-toggle.acb-pos-bottom-left { bottom: 20px; left: 20px; right: auto; }
@@ -343,5 +344,4 @@ html.acb-big-cursor [role="button"] {
 
 /* Responsivo */
 @media (max-width: 480px) {
-  .acb-panel { width: calc(100vw - 40px); max-width: 320px; }
-}
+  .acb-panel { width: calc(100vw - 40px); max-
